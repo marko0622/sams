@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1b112b;
+    color: #fff;
+    line-height: 1.6;
+  }
+
+  header {
+    background: #1b112b;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  body.scrolling-down header {
+    transform: translateY(-100%);
+  }
+
+  body.scrolling-up header {
+    transform: translateY(0);
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+
+  .hero p {
+    max-width: 600px;
+    margin: 10px auto;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 40px 20px;
+  }
+
+  .stat {
+    background: #2d2140;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+  }
+
+  .portfolio {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .portfolio h2 {
+    margin-bottom: 20px;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .portfolio-item {
+    background: #2d2140;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .experience {
+    padding: 40px 20px;
+    background: #261a3f;
+  }
+
+  .experience h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .timeline-step {
+    background: #2d2140;
+    padding: 20px;
+    border-radius: 10px;
+    width: 180px;
+    text-align: center;
+  }
+
+  footer {
+    padding: 20px;
+    text-align: center;
+    background: #1b112b;
+    border-top: 1px solid #333;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      flex-direction: row;
+      text-align: left;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .hero-text {
+      max-width: 400px;
+    }
+  }

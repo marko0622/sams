@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLING - Page Not Found</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    
+    <div class="broken-link broken-link-1">404</div>
+    <div class="broken-link broken-link-2">404</div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">ERROR</div>
+            <nav>
+                <a href="#" class="nav-item active">ERROR</a>
+            </nav>
+        </header>
+        
+        <main class="main-content">
+            <div class="error-title">404</div>
+            <p class="error-message">The page you were looking for doesn't yet exist.</p>
+            <button class="go-back-btn">Go Back</button>
+        </main>
+        
+        <footer>
+            <p>&copy; ERROR</p>
+            <p>Page Not Found</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelector('.go-back-btn').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1500);
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            const circles = document.querySelectorAll('.circle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            circles.forEach((circle, index) => {
+                const moveX = (x - 0.5) * 30 * (index + 1);
+                const moveY = (y - 0.5) * 20 * (index + 1);
+                
+                circle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

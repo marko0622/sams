@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="aboutme.css">
+</head>
+<body>
+  
+    <div class="page-navigation">
+        <div class="nav-dot active" data-section="home"></div>
+        <div class="nav-dot" data-section="projects"></div>
+        <div class="nav-dot" data-section="contact"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">About Me</div>
+            <nav>
+                <a href="index.html" class="nav-item active">Home</a>
+                <a href="#contact" class="nav-item">About</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
+        </header>
+        
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <div class="image-frame">
+                      <div class="image-placeholder">
+                        <img src="Pictures/profile pic.jpg" alt="Profile Picture" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                      </div>
+                    </div>
+                  </div>
+                <h1 class="tagline">
+                    Hi! My name is Marko Miguel G. Quijano
+                </h1>
+                <p class="description">
+                    I currently a student in STI College Alabang taking the course Bachelor of Science in Information Technology. 
+                    Being an Information Technology (IT) student means learning how to solve problems using computers and technology.
+                     We study programming, networking, databases, and other tools that help businesses and people work more efficiently.
+                      It’s a challenging course, but it teaches us to think critically and adapt to fast-changing technology.
+                     As IT students, we are being prepared to become future innovators and problem-solvers in the digital world.
+                </p>
+            
+                  
+                    <div class="skills-section">
+                      <h2>My Skills</h2>
+                      <ul>
+                        <li>HTML & CSS</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                        <li>Database Management</li>
+                        <li>Problem Solving</li>
+                      </ul>
+                    </div>
+                  </section>
+                  
+        
+
+        
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="social-icons">
+                <a href="mailto:miguelmarko62@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+639910346478" class="social-icon"><i class="fas fa-phone"></i>
+                  </a>                  
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2023 Professional Portfolio. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+ 
+        const navDots = document.querySelectorAll('.nav-dot');
+        const sections = document.querySelectorAll('section');
+        
+     
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+        
+        navDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetId = dot.getAttribute('data-section');
+                const targetSection = document.getElementById(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+                
+        
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+      
+        document.querySelector('.logo').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+         
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector('.nav-item[href="#"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>

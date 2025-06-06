@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Abdullah Al Sharif</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">O O O</div>
+    <nav>
+      <ul>
+        <li><a href="About me.html">About Me</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="markomiguel" style="color: red;" download>Download CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero section">
+    <img src="Pictures/profile pic.jpg" />
+    <div class="hero-text">
+      <h1>Marko Miguel G. Quijano's</h1>
+      <p>Systems Administration and Maintenance - Portfolio Project for finals.</p>
+    </div>
+  </section>
+
+  <section class="stats section">
+    <div class="stat"><h3>00</h3><p>Awards</p></div>
+    <div class="stat"><h3>01</h3><p>Clients</p></div>
+    <div class="stat"><h3>01</h3><p>Years Experience</p></div>
+    <div class="stat"><h3>01</h3><p>Projects</p></div>
+  </section>
+
+  <section class="portfolio section" id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item"><a href="projects.html">Project 1</a></div>
+      <div class="portfolio-item"><a href="projects.html">Project 2</a></div>
+      <div class="portfolio-item"><a href="projects.html">Project 3</a></div>
+  </section>
+
+  <section class="experience section">
+    <h2>My Experiences</h2>
+    <div class="timeline">
+      <div class="timeline-step">2025 - Step 01</div>
+    </div>
+  </section>
+  <footer>
+    <p>©2025 - Portfolio | All rights reserved</p>
+  </footer>
+
+  <script>
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const body = document.body;
+      const currentScroll = window.pageYOffset;
+      if (currentScroll <= 0) {
+        body.classList.remove('scrolling-down');
+        body.classList.remove('scrolling-up');
+        return;
+      }
+      if (currentScroll > lastScroll) {
+        body.classList.remove('scrolling-up');
+        body.classList.add('scrolling-down');
+      } else {
+        body.classList.remove('scrolling-down');
+        body.classList.add('scrolling-up');
+      }
+      lastScroll = currentScroll;
+    });
+
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
